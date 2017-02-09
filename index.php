@@ -28,6 +28,28 @@
 			</form>
 		  </div>
 	</nav>
+	  
+	  <div class="container">
+		  <h3>Knygos</h3>
+		  <table class="table table-striped table-sm">
+			  <thead>
+				  <th>Numeris</th>
+				  <th>Pavadinimas</th>
+				  <th>Autorius</th>
+				  <th>Metai</th>
+				  <th>Žanras</th>
+			  </thead>
+			  <tbody>
+				  <tr>
+					  <td>1</td>
+					  <td>Nauja knyga</td>
+					  <td>Petras Petraitis</td>
+					  <td>2001</td>
+					  <td>Romanas</td>
+				  </tr>
+			  </tbody>
+		  </table>
+	  </div>
 
 	<footer><p id="copyright">&copy; Knygų fondas 2017</p></footer>
 	  
