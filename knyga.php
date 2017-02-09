@@ -19,22 +19,25 @@ if (array_key_exists("id", $_GET)){
 <?php include("header.php");?>
 
 	<div class="container">
-		<img src="images/knygos/<?php echo $foto;?>">
+		<div id="viena-knyga">
+		<img id="book-img" src="images/knygos/<?php echo $foto;?>">
 		<h3><?php echo $pavadinimas;?></h3>
 		<table>
 			<tr>
-				<td>Autorius</td>
+				<td class="antrastes-spalva">Autorius:</td>
 				<td><?php echo $autorius;?></td>
 			</tr>
 			<tr>
-				<td>Leidimo metai</td>
+				<td class="antrastes-spalva">Leidimo metai:</td>
 				<td><?php echo $metai;?></td>
 			</tr>
 			<tr>
-				<td>Žanras</td>
+				<td class="antrastes-spalva">Žanras:</td>
 				<td><?php echo $zanras;?></td>
 			</tr>
 		</table>
+		</div>
+		<hr>
 		<p><?php echo $info;?></p>
 	</div>
 

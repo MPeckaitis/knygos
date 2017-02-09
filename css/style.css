@@ -17,3 +17,20 @@ footer {
 	padding: 10px;
 	text-align: center;
 }
+
+#book-img {
+	float: left;
+	padding-right: 10px;
+}
+
+#viena-knyga {
+	margin: 10px;
+}
+
+#viena-knyga td {
+	width: 200px;
+}
+
+.antrastes-spalva {
+	color: darkgray;
+}
