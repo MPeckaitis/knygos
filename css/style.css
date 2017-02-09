@@ -34,3 +34,7 @@ footer {
 .antrastes-spalva {
 	color: darkgray;
 }
+
+#sort-links a{
+	color: black;
+}
