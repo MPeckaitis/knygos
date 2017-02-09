@@ -74,9 +74,19 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 			  $order = $_GET["order"];
 			  $linkText = "orderBy=$orderBy&order=$order&";
 		  }
-
+		  
+		  if ($page != 1){
+			  echo "<a href='?".$linkText."page=".($page - 1)."'>Atgal </a>";
+		  }
 		  for ($i=1; $i<=$totalPages; $i++){
+			  if ($page == $i){
+				  echo "<a class='active'href='?".$linkText."page=".$i."'>".$i." </a>";
+			  } else {
 			  echo "<a href='?".$linkText."page=".$i."'>".$i." </a>";
+			  }
+		  }
+		  if ($page != $totalPages){
+			  echo "<a href='?".$linkText."page=".($page + 1)."'> Pirmyn</a>";
 		  }
 		  ?>
 		  </div>

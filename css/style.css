@@ -44,3 +44,12 @@ footer {
 	margin: 0 auto;
 	text-align: center;
 }
+
+#pages a {
+	color: black;
+}
+
+.active {
+	font-size: 20px;
+	font-weight: bold;
+}
