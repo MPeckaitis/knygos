@@ -5,10 +5,9 @@ mysqli_set_charset($connect, "utf8");
 if (mysqli_connect_errno()){
 	die ("Nepavyko prisijunti prie duomenų bazės".mysqli_connect_errno());
 }
-$query = "SELECT * FROM `knygos`";
-$runQuery = mysqli_query($connect, $query);
-$result = mysqli_fetch_array($runQuery);
-print_r ($result);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -53,13 +52,24 @@ print_r ($result);
 				  <th>Žanras</th>
 			  </thead>
 			  <tbody>
-				  <tr>
-					  <td>1</td>
-					  <td>Nauja knyga</td>
-					  <td>Petras Petraitis</td>
-					  <td>2001</td>
-					  <td>Romanas</td>
-				  </tr>
+				  <?php
+				  	$query = "SELECT * FROM `knygos`";
+					$runQuery = mysqli_query($connect, $query);
+					while ($result = mysqli_fetch_array($runQuery)){
+						$id = $result["id"];
+						$pavadinimas = $result["pavadinimas"];
+						$metai = $result["metai"];
+						$autorius = $result["autorius"];
+						$zanras = $result["zanras"];
+						echo "<tr>
+								<td>$id</td>
+								<td>$pavadinimas</td>
+								<td>$autorius</td>
+								<td>$metai</td>
+								<td>$zanras</td>
+							  </tr>";
+					}
+				  ?>
 			  </tbody>
 		  </table>
 	  </div>
