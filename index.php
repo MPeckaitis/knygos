@@ -32,7 +32,7 @@ if (mysqli_connect_errno()){
 						$zanras = $result["zanras"];
 						echo "<tr>
 								<td>$id</td>
-								<td>$pavadinimas</td>
+								<td><a href='knyga.php?id=$id'>$pavadinimas</a></td>
 								<td>$autorius</td>
 								<td>$metai</td>
 								<td>$zanras</td>
