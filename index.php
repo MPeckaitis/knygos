@@ -3,7 +3,15 @@
 include ("include/connect.php");
 $orderBy = "id"; //default pagal ka rusiuosime
 $order = "ASC"; //default rusiavimo tipas
-$query = "SELECT * FROM `knygos`"; //default query
+$perPage = 2; //keli irasai turi buti viename puslapyje
+$page = 1; //pradinis puslapis
+
+//tikrinam ar vartotojas paspaude ant puslaspio numeriuko
+if (isset($_GET["page"])){
+	$page = $_GET["page"];
+}
+$startFrom = ($page - 1) * $perPage; //pradine iraso db reiksme kuria naudosime LIMIT nustatyme
+$query = "SELECT * FROM `knygos` LIMIT $startFrom, $perPage"; //default query
 
 //nustatom kintamuju reiksmes is header linku ir rasom query su rusiavimu
 if (isset($_GET["orderBy"]) && isset($_GET["order"])){
@@ -14,7 +22,7 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 	} else {
 		$order = "ASC";
 	}
-	$query = "SELECT * FROM `knygos` ORDER BY ".$orderBy." ".$order;
+	$query = "SELECT * FROM `knygos` ORDER BY ".$orderBy." ".$order." LIMIT $startFrom, $perPage";
 }
 
 ?>
@@ -53,6 +61,25 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 				  ?>
 			  </tbody>
 		  </table>
+		  <div id="pages">
+		  <?php
+		  //skaiciuojam kiek puslapiu bus is viso
+		  $query = "SELECT * FROM `knygos`";
+		  $runQuery = mysqli_query($connect, $query);
+		  $totalRecords = mysqli_num_rows($runQuery);
+		  $totalPages = ceil($totalRecords / $perPage);
+		  $linkText = ""; //kintamasis skirtas tikrinti ar yra rusiavimas ar jo nera
+		  if (isset($_GET["orderBy"]) && isset($_GET["order"])){
+			  $orderBy = $_GET["orderBy"];
+			  $order = $_GET["order"];
+			  $linkText = "orderBy=$orderBy&order=$order&";
+		  }
+
+		  for ($i=1; $i<=$totalPages; $i++){
+			  echo "<a href='?".$linkText."page=".$i."'>".$i." </a>";
+		  }
+		  ?>
+		  </div>
 	  </div>
 
 <?php include("footer.php");?>

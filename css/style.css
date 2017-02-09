@@ -39,3 +39,8 @@ footer {
 	color: black;
 	text-decoration: underline;
 }
+
+#pages {
+	margin: 0 auto;
+	text-align: center;
+}
