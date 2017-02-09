@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,8 +26,8 @@
 				<a class="nav-link" href="index.php">Į pradžią <span class="sr-only">(current)</span></a>
 			  </li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-			  <input class="form-control mr-sm-2" type="text" placeholder="Įveskite ieškomą frazę">
+			<form class="form-inline my-2 my-lg-0" method="get" action="index.php">
+			  <input class="form-control mr-sm-2" type="text" name="st" placeholder="Įveskite ieškomą frazę">
 			  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Ieškoti</button>
 			</form>
 		  </div>
