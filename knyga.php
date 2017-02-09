@@ -11,11 +11,31 @@ if (array_key_exists("id", $_GET)){
 	$zanras = $result["zanras"];
 	$info = $result["informacija"];
 	$foto = $result["foto"];
-	echo $pavadinimas;
 } else {
 	header ("Location: index.php");
 }
-
 ?>
+
 <?php include("header.php");?>
+
+	<div class="container">
+		<img src="images/knygos/<?php echo $foto;?>">
+		<h3><?php echo $pavadinimas;?></h3>
+		<table>
+			<tr>
+				<td>Autorius</td>
+				<td><?php echo $autorius;?></td>
+			</tr>
+			<tr>
+				<td>Leidimo metai</td>
+				<td><?php echo $metai;?></td>
+			</tr>
+			<tr>
+				<td>Žanras</td>
+				<td><?php echo $zanras;?></td>
+			</tr>
+		</table>
+		<p><?php echo $info;?></p>
+	</div>
+
 <?php include("footer.php");?>
