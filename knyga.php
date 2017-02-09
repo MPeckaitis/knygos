@@ -1,6 +1,8 @@
 <?php
 
 include ("include/connect.php");
+
+//tikrinam ar yra pasirinkta knyga ir gaunam info is duomenu bazes
 if (array_key_exists("id", $_GET)){
 	$query = "SELECT * FROM `knygos` WHERE id = '".$_GET['id']."' LIMIT 1";
 	$runQuery = mysqli_query($connect, $query);
@@ -12,7 +14,7 @@ if (array_key_exists("id", $_GET)){
 	$info = $result["informacija"];
 	$foto = $result["foto"];
 } else {
-	header ("Location: index.php");
+	header ("Location: index.php"); //jei neturim knygos id vartotoja grazinam i pradini puslapi
 }
 ?>
 

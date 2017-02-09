@@ -1,10 +1,11 @@
 <?php
 
 include ("include/connect.php");
-$orderBy = "id";
-$order = "ASC";
-$query = "SELECT * FROM `knygos`";
+$orderBy = "id"; //default pagal ka rusiuosime
+$order = "ASC"; //default rusiavimo tipas
+$query = "SELECT * FROM `knygos`"; //default query
 
+//nustatom kintamuju reiksmes is header linku ir rasom query su rusiavimu
 if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 	$orderBy = $_GET["orderBy"];
 	$order = $_GET["order"];
@@ -32,6 +33,8 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 			  </thead>
 			  <tbody>
 				  <?php
+				  
+				  	//uzpildom lentele su irasais is duomenu bazes
 					$runQuery = mysqli_query($connect, $query);
 					while ($result = mysqli_fetch_array($runQuery)){
 						$id = $result["id"];
