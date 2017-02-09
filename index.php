@@ -1,3 +1,15 @@
+<?php
+
+$connect = mysqli_connect("127.0.0.1","root","","knygos");
+if (mysqli_connect_errno()){
+	die ("Nepavyko prisijunti prie duomenų bazės".mysqli_connect_errno());
+}
+$query = "SELECT * FROM `knygos`";
+$runQuery = mysqli_query($connect, $query);
+$result = mysqli_fetch_array($runQuery);
+print_r ($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
