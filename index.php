@@ -85,7 +85,7 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 		  $runQuery = mysqli_query($connect, $query);
 		  $totalRecords = mysqli_num_rows($runQuery);
 			  
-		  if ($totalRecords) {
+		  if ($totalRecords) { //jei ka nors randa rodo, jei neranda meta error message
 			  
 		  $totalPages = ceil($totalRecords / $perPage);
 		  $linkText = ""; //kintamasis skirtas tikrinti ar yra rusiavimas ar jo nera bei ar yra paieska
@@ -101,6 +101,7 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 			  
 		  }
 		  
+		  if ($totalPages >1){  // jei rezultatai telpa vienam psl nerode puslapio su linku 1
 		  if ($page != 1){
 			  echo "<a href='?".$linkText."page=".($page - 1)."'>Atgal </a>";
 		  }
@@ -114,12 +115,13 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 		  if ($page != $totalPages){
 			  echo "<a href='?".$linkText."page=".($page + 1)."'> Pirmyn</a>";
 		  }
+			  }
 		  } else {
 			  $messageText = "Pagal paieškos žodį '".$_GET['st']."' įrašų nerasta. Patikslinkite paiešką ir bandykite dar kartą.";
 		  }
 		  if ($messageText != ""){
 			  echo '<div class="alert alert-danger" role="alert">'.$messageText.'</div>'; 
-											}
+								}
 		  ?>
 		  
 		  </div>
