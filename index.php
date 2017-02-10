@@ -3,7 +3,7 @@
 include ("include/connect.php");
 $orderBy = "id"; //default pagal ka rusiuosime
 $order = "ASC"; //default rusiavimo tipas
-$perPage = 4; //keli irasai turi buti viename puslapyje
+$perPage = 10; //keli irasai turi buti viename puslapyje
 $page = 1; //pradinis puslapis
 $searchText = ""; //default paieskos zodis
 $searchQuery = ""; //default search query
