@@ -9,6 +9,8 @@ $searchText = ""; //default paieskos zodis
 $searchQuery = ""; //default search query
 $searchVar = ""; //paieskos lauko ivestas zodis
 $searchVar = ""; //paieskos lauko ivestas zodis
+$messageText = "";
+
 //tikrinam ar vartotojas ka nors ivede i paieskos langeli
 if (isset($_GET["st"])){
 	$searchText =  $_GET["st"];
@@ -82,6 +84,9 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 		  
 		  $runQuery = mysqli_query($connect, $query);
 		  $totalRecords = mysqli_num_rows($runQuery);
+			  
+		  if ($totalRecords) {
+			  
 		  $totalPages = ceil($totalRecords / $perPage);
 		  $linkText = ""; //kintamasis skirtas tikrinti ar yra rusiavimas ar jo nera bei ar yra paieska
 			  
@@ -109,7 +114,14 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 		  if ($page != $totalPages){
 			  echo "<a href='?".$linkText."page=".($page + 1)."'> Pirmyn</a>";
 		  }
+		  } else {
+			  $messageText = "Pagal paieškos žodį '".$_GET['st']."' įrašų nerasta. Patikslinkite paiešką ir bandykite dar kartą.";
+		  }
+		  if ($messageText != ""){
+			  echo '<div class="alert alert-danger" role="alert">'.$messageText.'</div>'; 
+											}
 		  ?>
+		  
 		  </div>
 	  </div>
 
