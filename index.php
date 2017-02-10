@@ -7,7 +7,8 @@ $perPage = 4; //keli irasai turi buti viename puslapyje
 $page = 1; //pradinis puslapis
 $searchText = ""; //default paieskos zodis
 $searchQuery = ""; //default search query
-$searchVar = "";
+$searchVar = ""; //paieskos lauko ivestas zodis
+$searchVar = ""; //paieskos lauko ivestas zodis
 //tikrinam ar vartotojas ka nors ivede i paieskos langeli
 if (isset($_GET["st"])){
 	$searchText =  $_GET["st"];
@@ -100,7 +101,7 @@ if (isset($_GET["orderBy"]) && isset($_GET["order"])){
 		  }
 		  for ($i=1; $i<=$totalPages; $i++){
 			  if ($page == $i){
-				  echo "<a class='active'href='?".$linkText."page=".$i."'>".$i." </a>";
+				  echo "<a class='active-page'href='?".$linkText."page=".$i."'>".$i." </a>";
 			  } else {
 			  echo "<a href='?".$linkText."page=".$i."'>".$i." </a>";
 			  }
