@@ -40,6 +40,11 @@ footer {
 	width: 200px;
 }
 
+#info-book {
+	clear: both;
+	padding-top: 5px;
+}
+
 .antrastes-spalva {
 	color: darkgray;
 }

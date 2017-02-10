@@ -39,8 +39,7 @@ if (array_key_exists("id", $_GET)){
 			</tr>
 		</table>
 		</div>
-		<hr>
-		<p><?php echo $info;?></p>
+		<div id="info-book"><hr><?php echo $info;?></div>
 	</div>
 
 <?php include("footer.php");?>
