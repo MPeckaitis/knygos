@@ -29,8 +29,8 @@
 			  </li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0" method="get" action="index.php">
-			  <input class="form-control mr-sm-2" type="text" name="st" placeholder="Įveskite ieškomą frazę">
-			  <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Ieškoti</button>
+			  <input class="form-control mr-sm-2" type="text" name="st" id="st-val" placeholder="Įveskite ieškomą frazę" pattern="[a-zA-Z0-9\s]+">
+			  <button class="btn btn-outline-info my-2 my-sm-0" id="submit" type="submit">Ieškoti</button>
 			</form>
 		  </div>
 	</nav>
